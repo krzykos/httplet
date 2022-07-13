@@ -1,0 +1,20 @@
+{
+  "name": "httplet",
+  "version": "0.1.0",
+  "description": "A simple HTTP server with clear semantics",
+  "author": "Krzysztof Kostałkowicz",
+  "license": "ISC",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "patch-package",
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "finalhandler": "^1.2.0",
+    "js-yaml": "^4.1.0",
+    "node-getopt": "^0.3.2",
+    "patch-package": "^6.4.7",
+    "send": "^0.18.0",
+    "serve-static": "^1.15.0"
+  }
+}

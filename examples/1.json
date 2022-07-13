@@ -1,0 +1,6 @@
+[
+	{ "rule": "EnterLocation", "prefix": "/test", "rules": [
+		{ "rule": "Log", "message": "${req.method} ${req.url}" },
+		{ "rule": "ServeDirectory", "dir": "public" }
+	]}
+]

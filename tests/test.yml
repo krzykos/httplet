@@ -1,0 +1,19 @@
+---
+- rule: AddHeaders
+  headers:
+    x-test: qqq
+- rule: Log
+  message: "> ${req.method} ${req.url} ${res.headersSent}"
+- rule: EnterLocation
+  regexp: "^/[0-9]"
+  rules:
+  - rule: EnterLocation
+    regexp: "^/zzz"
+    rules:
+    - rule: AddHeaders
+      headers:
+        x-test: zzz
+  - rule: ServeDirectory
+    dir: public
+- rule: Log
+  message: "< ${req.method} ${req.url} ${res.headersSent}"

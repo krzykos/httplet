@@ -1,0 +1,15 @@
+diff --git a/node_modules/serve-static/index.js b/node_modules/serve-static/index.js
+index b7d3984..1d755e4 100644
+--- a/node_modules/serve-static/index.js
++++ b/node_modules/serve-static/index.js
+@@ -103,6 +103,10 @@ function serveStatic (root, options) {
+       stream.on('headers', setHeaders)
+     }
+ 
++    if (typeof opts.sent === 'function') {
++      stream.on('end', opts.sent)
++    }
++
+     // add file listener for fallthrough
+     if (fallthrough) {
+       stream.on('file', function onFile () {

@@ -1,0 +1,7 @@
+- rule: Log
+  message: "${req.method} ${req.url}"
+- rule: EnterLocation
+  exact: "/index"
+  rules:
+  - rule: ServeFile
+    file: public/index.txt
