@@ -1,7 +1,7 @@
 {
   "name": "httplet",
   "version": "0.1.0",
-  "description": "A simple HTTP server with clear semantics",
+  "description": "A simple HTTP server with clean semantics",
   "author": "Krzysztof Kostałkowicz",
   "license": "ISC",
   "main": "main.js",

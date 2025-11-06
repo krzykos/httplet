@@ -1,11 +1,11 @@
 # httplet
 
-A simple HTTP server with clear semantics.
+A simple plugin-oriented HTTP server with clean semantics.
 
 ## Configuration
 
 Configuration is a sequence of rules.
-If serving rule does not occur within a sequence, it returns 404.
+If serving rule does not occur within a sequence, the server returns 404.
 There should be at most one serving rule in a sequence.
 After a serving rule occurs, the response is already sent.
 
@@ -37,6 +37,12 @@ There is a special rule `EnterLocation` that allows to branch URLs.
     * `regexp` - regular expression to match URL
   * `rules` - matching sequence
 
+## Installation
+
+```bash
+npm install
+```
+
 ## Execution
 
 Configuration can be provided as JavaScript, JSON or YAML.
@@ -57,7 +63,7 @@ help: -h
 Serve directory `public` under `/test/*` URL.
 Log requests matching location.
 
-```
+```json
 [
 	{ "rule": "EnterLocation", "prefix": "/test", "rules": [
 		{ "rule": "Log", "message": "${req.method} ${req.url}" },
@@ -71,7 +77,7 @@ Log requests matching location.
 Serve file `public/index.txt` at `/index` URL.
 Log all requests.
 
-```
+```yaml
 - rule: Log
   message: "${req.method} ${req.url}"
 - rule: EnterLocation
@@ -85,7 +91,7 @@ Log all requests.
 
 Serve directory `public` at `/*` URL.
 
-```
+```bash
 node main.js -p 3003 -i "[{\"rule\": \"ServeDirectory\", \"dir\": \"public\"}]" -v
 ```
 
@@ -95,7 +101,7 @@ Serve directory `public` at `/test/*` URL.
 Files will be served as attachments.
 Log all requests.
 
-```
+```js
 'use strict';
 
 const http = require('http');
@@ -123,3 +129,4 @@ console.log("listening at 3004...");
 - example for creating custom rules
 - powerful conditional rule
 - proxy rule
+- restructure the hardcoded ruleset as plugin set
